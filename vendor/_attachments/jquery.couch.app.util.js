@@ -22,13 +22,13 @@ $.fn.serializeObject = function() {
 };
 
 // todo remove this crap
-function escapeHTML(st) {                                       
-  return(                                                                 
-    st && st.replace(/&/g,'&amp;').                                         
-      replace(/>/g,'&gt;').                                           
-      replace(/</g,'&lt;').                                           
-      replace(/"/g,'&quot;')                                         
-  );                                                                     
+function escapeHTML(st) {
+  return(
+    st && st.replace(/&/g,'&amp;').
+      replace(/>/g,'&gt;').
+      replace(/</g,'&lt;').
+      replace(/"/g,'&quot;')
+  );
 };
 
 function safeHTML(st, len) {
@@ -59,7 +59,7 @@ $.fn.prettyDate = function() {
 };
 
 $.prettyDate = function(time){
-  
+
 	var date = new Date(time.replace(/-/g,"/").replace("T", " ").replace("Z", " +0000").replace(/(\d*\:\d*:\d*)\.\d*/g,"$1")),
 		diff = (((new Date()).getTime() - date.getTime()) / 1000),
 		day_diff = Math.floor(diff / 86400);
@@ -79,12 +79,3 @@ $.prettyDate = function(time){
     // day_diff < 730 && Math.ceil( day_diff / 31 ) + " months ago" ||
     // Math.ceil( day_diff / 365 ) + " years ago";
 };
-
-$.argsToArray = function(args) {
-  if (!args.callee) return args;
-  var array = [];
-  for (var i=0; i < args.length; i++) {
-    array.push(args[i]);
-  };
-  return array;
-}
